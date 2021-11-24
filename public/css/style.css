@@ -1,0 +1,799 @@
+@import "media.css";
+@import "../fonts/SF Pro Display/stylesheet.css";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "SF Pro Display";
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+li {
+    list-style-type: none;
+}
+
+.container {
+    padding: 0 50px;
+    max-width: 1380px;
+    width: 100%;
+    margin: auto;
+}
+
+.hidden {
+    display: none;
+}
+
+header, footer {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2000;
+    background: white;
+}
+
+
+header .content, footer .content {
+    width: 100%;
+    padding: 12px 0;
+    display: flex;
+    align-items: center;
+}
+
+header .content .logo, footer .content .logo {
+    width: 65px;
+    height: 50px;
+}
+
+header .content nav {
+    margin-left: 40px;
+}
+
+header .content nav ul {
+    display: flex;
+    margin-left: -50px;
+}
+
+header .content nav ul li {
+    margin-left: 50px;
+    font-weight: 600;
+    font-size: 18px;
+    position: relative;
+    cursor: pointer;
+}
+
+header .content nav ul li:after {
+    width: 0;
+    left: 50%;
+    height: 3px;
+    content: " ";
+    background: red;
+    transition: .33s;
+    position: absolute;
+    top: calc(100% + 3px);
+    transform: translateX(-50%);
+    border-radius: 3px;
+}
+
+header .content nav ul li:hover:after {
+    width: 100%;
+}
+
+main {
+    margin-top: 64px;
+    flex-grow: 1;
+}
+
+button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.shortInfo .container {
+    padding: 0;
+}
+
+.shortInfo .content{
+    width: 100%;
+    position: relative;
+    padding-bottom: 47.3%;
+    overflow: hidden;
+}
+
+.shortInfo .content .shadow, .billboardCards .card .shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+}
+
+.shortInfo .content .shadow img, .billboardCards .card .shadow {
+    object-fit: fill;
+}
+
+.shortInfo .content .text {
+    position: absolute;
+    bottom:0;
+    z-index: 1001;
+    padding: 50px;
+}
+
+.shortInfo .content .text h1 {
+    font-weight: 700;
+    font-size: 72px;
+    line-height: 85px;
+    color: white;
+}
+
+
+.detailedInfo .container {
+    padding: 42px 50px 32px 50px;
+    background: #FBFBFB;
+}
+
+.detailedInfo .content {
+    display: flex;
+    margin-left: -60px;
+}
+
+.detailedInfo .content .card {
+    margin-left: 60px;
+}
+
+.detailedInfo .content .card .cardTitle {
+    font-weight: bold;
+    font-size: 16px;
+    color: #818181;
+}
+
+.detailedInfo .content .card .cardInfo {
+    font-weight: bold;
+    font-size: 26px;
+    color: #282828;
+}
+
+.billboardsInfo .container {
+    padding: 50px 50px;
+}
+
+.billboardsInfo .blockTitle {
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.billboardsInfo .maps {
+    width: 100%;
+    padding-bottom: 49%;
+    position: relative;
+    overflow: hidden;
+    margin-top: 50px;
+}
+
+.billboardsInfo .maps img {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.billboardCards {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    margin-left: -27px;
+}
+
+.billboardCards .card {
+    display: block;
+    width: calc(100%/4 - 27px);
+    margin-left: 27px;
+    margin-top: 20px;
+    position: relative;
+    padding-bottom: 36%;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+
+.billboardCards .card .cardContent {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1001;
+}
+
+.billboardCards .card .price {
+    position: absolute;
+    top: 24px;
+    left: 20px;
+    padding: 4px 12px;
+    background: #FA434B;
+    border-radius: 14px;
+    font-weight: 600;
+    font-size: 16px;
+    color: white;
+}
+
+
+.billboardCards .card .text {
+    position: absolute;
+    bottom: 20px;
+    padding: 0 20px;
+
+}
+
+.billboardCards .card .text .title {
+    font-weight: 500;
+    font-size: 24px;
+    color: white;
+}
+
+.billboardCards .card .text .address {
+    margin-top: 5px;
+    font-weight: normal;
+    font-size: 14px;
+    color: #C7C7C7;
+}
+
+.billboardCards .card .animationShadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.29);
+    z-index: 1002;
+    opacity: 0;
+    transition: .33s;
+}
+
+.billboardCards .card:hover .animationShadow {
+    opacity: 1;
+}
+
+.billboardHead {
+    display: flex;
+}
+
+.billboardHead .container {
+    padding: 0 50px 0 0;
+}
+
+.billboardHead .content {
+    background: #FBFBFB;
+    padding: 25px 0 25px 50px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.billboardHead .content .text h3{
+    font-weight: bold;
+    font-size: 36px;
+}
+
+.billboardHead .content .text p{
+    margin-top: 5px;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.billboardHead .content .billboardHeadButton {
+    position: absolute;
+    height: 100%;
+    width: 233px;
+    right: 0;
+    top: 0;
+}
+
+.billboardHead .content .billboardHeadButton button {
+    height: 100%;
+    padding: 54px 50px 50px 50px;
+    background: #FA434B;
+    color: white;
+    font-weight: 600;
+    font-size: 18px;
+
+}
+
+.billboardInfoSection {
+    margin-top: 50px;
+}
+
+.billboardInfoSection .content{
+    display: flex;
+}
+
+.billboardInfoSection .content .info {
+    width: 47%;
+
+}
+.billboardInfoSection .content .picture {
+    width: 53%;
+    padding-bottom: 50%;
+    position: relative;
+    overflow: hidden;
+}
+
+.billboardInfoSection .content .picture .imgWrapper {
+    width: calc(100% - 50px);
+    height: calc(100% - 50px);
+    position: absolute;
+    left: 50px;
+    border: 10px solid #E7E7E8;
+}
+
+.billboardInfoSection .content .picture .imgWrapper img {
+    object-fit: cover;
+}
+
+
+.billboardInfoSection .content .info .bookmarks {
+    width: 100%;
+    display: flex;
+}
+
+.billboardInfoSection .content .info .bookmarks .bookmark {
+    width: 50%;
+    border-bottom: 2px solid #E0E0E0;
+    padding-bottom: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.billboardInfoSection .content .info .bookmarks .bookmark.checked {
+    border-bottom: 2px solid #FA434B;
+}
+
+.billboardInfoSection .content .info .bookmarks .bookmark h6{
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.billboardInfoSection .content .info .stats {
+    width: 100%;
+    margin-top: 30px;
+}
+
+.billboardInfoSection .content .info .stats, th, td {
+    border: 1px solid rgba(0, 0, 0, 0.16);
+    text-align: center;
+}
+
+
+.billboardInfoSection .content .info .showOnMapButton .icon {
+    display: block;
+    margin-left: 0;
+    width: 18px;
+    height: 18px;
+}
+
+.billboardInfoSection .content .info .showOnMapButton .wp {
+    display: flex;
+}
+
+.billboardInfoSection .content .info .showOnMapButton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.billboardInfoSection .content .info .showOnMapButton .price {
+    font-weight: bold;
+    color: #FA434B;
+    font-size: 20px;
+}
+
+.billboardInfoSection .content .info .showOnMapButton button {
+    font-weight: 600;
+    font-size: 16px;
+    background: transparent;
+    letter-spacing: 0.2px;
+    margin-left: 13px;
+}
+
+.bookmarkCalendar .calendar {
+    margin-top: 40px;
+    width: 100%;
+    background:#FBFBFB;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.updateInfoButton, #updateImageForm button {
+    background: #FA434B;
+    margin-top: 35px;
+    width: 120px;
+    height: 44px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 16px;
+    color:white
+}
+
+#updateImageForm button {
+    margin-top: 0;
+}
+
+#updateImageForm {
+    margin-top: 20px;
+}
+
+.bookmarkCalendar .calendar .title {
+    font-weight: 600;
+    font-size: 16px;
+    color: #222222;
+    width: 100%;
+    text-align: center;
+}
+
+.bookmarkCalendar .calendar .months {
+    display: flex;
+    margin-left: -18px;
+    margin-top: 15px;
+    overflow: hidden;
+    overflow-x: scroll;
+}
+
+.bookmarkCalendar .calendar .months::-webkit-scrollbar {
+    height: 4px;
+}
+
+.bookmarkCalendar .calendar .months::-webkit-scrollbar-track {
+    background-color: #FBFBFB;
+}
+
+.bookmarkCalendar .calendar .months::-webkit-scrollbar-thumb {
+    background-color: #C4C4C4;
+}
+
+.bookmarkCalendar .calendar .month {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 18px;
+    min-width: 80px;
+}
+
+.bookmarkCalendar .calendar .month .title {
+    font-weight: 600;
+    font-size: 16px;
+    color: #C7C7C7;
+}
+
+.bookmarkCalendar .calendar .month .status {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.red {
+    background: #FA434B;
+}
+
+.green {
+    background: #48B95A;
+}
+
+.yellow {
+    background: #FFC75A;
+}
+
+.text_red {
+    color: #FA434B;
+}
+
+.text_green {
+    color: #48B95A;
+}
+
+.text_yellow {
+    color: #FFC75A;
+}
+
+
+
+.bookmarkCalendar .statusInfo {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-weight: normal;
+    font-size: 16px;
+    color: #282828;
+}
+
+.billboardModal {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background: rgba(0, 0, 0, 0.829);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+}
+
+.billboardModalWindow {
+    width: 65%;
+    display: flex;
+    transition: .5s;
+}
+
+.billboardModalWindow .sectionInfo {
+    width: 50%;
+    position: relative;
+    padding-bottom: 50%;
+    overflow: hidden;
+}
+
+.billboardModalWindow .sectionInfo .redLayout {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background:#fa434cde;
+    z-index: 1005;
+}
+
+.billboardModalWindow .sectionForm {
+    width: 50%;
+    padding: 0 60px;
+    height: inherit;
+    position: relative;
+    overflow: hidden;
+    background: #FBFBFB;
+}
+
+.billboardModalWindow .sectionInfo .textWrapper {
+    position: absolute;
+    z-index: 1006;
+    width: 100%;
+    padding:0 60px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.billboardModalWindow .sectionInfo h5 {
+    color: white;
+    font-weight: bold;
+    font-size: 38px;
+}
+
+.billboardModalWindow .sectionInfo p {
+    color: white;
+    font-weight: 500;
+    font-size: 22px;
+    margin-top: 20px;
+}
+
+.billboardModalWindow .sectionForm form {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 0 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.billboardModalWindow .sectionForm form input, .billboardModalWindow .sectionForm form textarea, .loginForm input {
+    width: 100%;
+    height: 54px;
+    border-radius: 0;
+    color: #818181;
+    border:1px solid transparent;
+    font-weight: normal;
+    font-size: 18px;
+    margin-top: 15px;
+    outline: none;
+    -webkit-box-shadow: 0px 2px 8px 0px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 0px 2px 8px 0px rgba(34, 60, 80, 0.2);
+    box-shadow: 0px 2px 8px 0px rgba(34, 60, 80, 0.2);
+    padding: 0 20px 0 54px;
+}
+
+.billboardModalWindow .sectionForm form textarea {
+    height: 175px;
+    resize: none;
+    padding: 19px 20px 19px 54px;
+}
+
+.billboardModalWindow .sectionForm form button, .loginForm button {
+    background: #FA434B;
+    margin-top: 15px;
+    width: 100%;
+    height: 54px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 18px;
+    color:white
+}
+
+
+.billboardModalWindow .sectionForm form input:focus, .loginForm input:focus {
+    border:1px solid #FA434B;
+}
+
+.billboardModalWindow .policy {
+    margin-top: 20px;
+    font-weight: normal;
+    font-size: 16px;
+    color: #282828;
+}
+
+.billboardModalWindow .policy a {
+    color: #FA434B;
+}
+
+.billboardModalWindow .inputWrapper {
+    position: relative;
+}
+
+.billboardModalWindow .inputWrapper .icon {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 50%;
+    left: 19px;
+    transform: translateY(-18%);
+}
+
+.billboardModalWindow .inputWrapper:nth-child(3) .icon {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 38px;
+    left: 19px;
+}
+
+.visible {
+    transition: .3s;
+    opacity: 1;
+    z-index: 100000;
+}
+
+.loginWrapper {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.loginWrapper .redLayout {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(250, 67, 76, 0.25);
+    z-index: 1005;
+}
+
+.loginWrapper .loginForm {
+    position: absolute;
+    z-index: 1006;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 50px;
+    background: #FBFBFB;
+    border-radius: 8px;
+}
+
+.loginWrapper .loginForm input {
+    padding: 0 20px;
+    height: 54px;
+}
+
+.loginWrapper .loginForm input, .loginWrapper .loginForm button{
+    width: 350px;
+    margin-top: 20px;
+}
+
+.loginForm h4 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+    transform: translateY(-15px);
+}
+
+.hiddenForm {
+    display: none;
+}
+
+
+
+#flyingInput {
+    display: none;
+    width: 0;
+    height: 0;
+
+}
+
+
+footer {
+    position: static;
+    margin-top: 20px;
+    background: #FBFBFB;
+}
+
+footer .companyReg {
+    margin-left: 40px;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+footer .content {
+    justify-content: space-between;
+}
+
+footer .leftsideWrapper {
+    display: flex;
+    align-items: center;
+}
+
+footer .rightsideWrapper .contacts{
+    display: flex;
+    align-items: center;
+    margin-left: -7px;
+}
+
+footer .rightsideWrapper .contact .icon{
+    width: 18px;
+    height: 18px;
+    margin-left: 10px;
+}
+
+footer .rightsideWrapper .contact .address {
+    margin-left: 7px;
+}
+
+footer .rightsideWrapper .contact{
+    display: flex;
+    align-items: center;
+    margin-left: 7px;
+}
+
+
+
+
+
+
+
+
+
+

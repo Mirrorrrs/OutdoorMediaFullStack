@@ -1,0 +1,118 @@
+@import "../fonts/SF Pro Display/stylesheet.css";
+@import "style.css";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+
+body {
+    font-family: "SF Pro Display";
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+li {
+    list-style-type: none;
+}
+
+
+
+.adminPanel{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+.adminPanel .adminNavigation {
+    height: 100%;
+    min-width: 300px;
+    background: #FBFBFB;
+}
+
+.adminPanel .adminNavigation .title {
+    font-weight: bold;
+    font-size: 40px;
+    padding: 40px 25px;
+}
+
+
+
+.adminPanel .adminNavigation nav li {
+    font-weight: normal;
+    font-size: 20px;
+    padding: 20px 15px;
+}
+
+.adminPanel .adminNavigation nav li.checked {
+    background: #FA434B;
+}
+
+.adminPanel .adminNavigation nav li.checked a{
+    color: white;
+}
+
+
+.adminPanel .adminContent {
+    flex:1 1 auto;
+    height: 100vh;
+    overflow: hidden;
+    overflow-y: scroll;
+    padding: 40px;
+}
+
+.panel .panelTitle {
+    font-weight: bold;
+    font-size: 44px;
+}
+
+.panel .loadExcelForm {
+    margin-top: 42px;
+}
+
+.panel .loadExcelForm #loadExcel {
+    display: none;
+}
+
+.panel .loadExcelForm button {
+    padding: 15px 30px;
+    background: #FA434B;
+    color: white;
+    font-size: 16px;
+}
+
+
+.panel .loadExcelForm label {
+    cursor: pointer;
+    background: #dedede;
+    padding: 15px 30px;
+    font-size: 16px;
+}
+
+#fileName {
+    margin-left: 20px;
+}
