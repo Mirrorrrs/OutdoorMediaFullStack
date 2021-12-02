@@ -34,7 +34,6 @@ li {
 }
 
 .container {
-    padding: 0 50px;
     max-width: 1380px;
     width: 100%;
     margin: auto;
@@ -58,7 +57,6 @@ header .content, footer .content {
     width: 100%;
     padding: 12px 0;
     display: flex;
-    align-items: center;
 }
 
 header .content .logo, footer .content .logo {
@@ -66,17 +64,12 @@ header .content .logo, footer .content .logo {
     height: 50px;
 }
 
-header .content nav {
-    margin-left: 40px;
-}
 
 header .content nav ul {
     display: flex;
-    margin-left: -50px;
 }
 
 header .content nav ul li {
-    margin-left: 50px;
     font-weight: 600;
     font-size: 18px;
     position: relative;
@@ -101,7 +94,6 @@ header .content nav ul li:hover:after {
 }
 
 main {
-    margin-top: 64px;
     flex-grow: 1;
 }
 
@@ -131,27 +123,44 @@ button {
     z-index: 1000;
 }
 
+.billboardCards .card .text .address {
+    margin-top: 5px;
+    font-weight: normal;
+    color: #C7C7C7;
+}
+
+.billboardCards .card .text .title {
+    font-weight: 500;
+    color: white;
+}
+
+.billboardCards .card .text {
+    position: absolute;
+    bottom: 20px;
+}
+
+.billboardInfoSection .content .picture {
+    position: relative;
+    overflow: hidden;
+}
+
+.billboardInfoSection .content{
+    display: flex;
+}
+
+.billboardInfoSection .content .picture .imgWrapper {
+    position: absolute;
+    border: 10px solid #E7E7E8;
+}
+
+
 .shortInfo .content .shadow img, .billboardCards .card .shadow {
     object-fit: fill;
 }
 
-.shortInfo .content .text {
-    position: absolute;
-    bottom:0;
-    z-index: 1001;
-    padding: 50px;
-}
-
-.shortInfo .content .text h1 {
-    font-weight: 700;
-    font-size: 72px;
-    line-height: 85px;
-    color: white;
-}
-
-
 .detailedInfo .container {
-    padding: 42px 50px 32px 50px;
+    padding-top: 42px;
+    padding-bottom: 32px;
     background: #FBFBFB;
 }
 
@@ -177,7 +186,7 @@ button {
 }
 
 .billboardsInfo .container {
-    padding: 50px 50px;
+    padding-top: 50px;
 }
 
 .billboardsInfo .blockTitle {
@@ -199,25 +208,6 @@ button {
     left: 0;
 }
 
-.billboardCards {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 30px;
-    margin-left: -27px;
-}
-
-.billboardCards .card {
-    display: block;
-    width: calc(100%/4 - 27px);
-    margin-left: 27px;
-    margin-top: 20px;
-    position: relative;
-    padding-bottom: 36%;
-    overflow: hidden;
-    cursor: pointer;
-    border-radius: 2px;
-}
 
 
 .billboardCards .card .cardContent {
@@ -227,39 +217,6 @@ button {
     top: 0;
     left: 0;
     z-index: 1001;
-}
-
-.billboardCards .card .price {
-    position: absolute;
-    top: 24px;
-    left: 20px;
-    padding: 4px 12px;
-    background: #FA434B;
-    border-radius: 14px;
-    font-weight: 600;
-    font-size: 16px;
-    color: white;
-}
-
-
-.billboardCards .card .text {
-    position: absolute;
-    bottom: 20px;
-    padding: 0 20px;
-
-}
-
-.billboardCards .card .text .title {
-    font-weight: 500;
-    font-size: 24px;
-    color: white;
-}
-
-.billboardCards .card .text .address {
-    margin-top: 5px;
-    font-weight: normal;
-    font-size: 14px;
-    color: #C7C7C7;
 }
 
 .billboardCards .card .animationShadow {
@@ -282,17 +239,16 @@ button {
     display: flex;
 }
 
-.billboardHead .container {
-    padding: 0 50px 0 0;
-}
 
 .billboardHead .content {
     background: #FBFBFB;
-    padding: 25px 0 25px 50px;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     position: relative;
 }
+
+
 
 .billboardHead .content .text h3{
     font-weight: bold;
@@ -305,17 +261,17 @@ button {
     font-size: 18px;
 }
 
-.billboardHead .content .billboardHeadButton {
-    position: absolute;
-    height: 100%;
-    width: 233px;
-    right: 0;
-    top: 0;
+.statsMob p{
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 10px;
 }
 
+
+
 .billboardHead .content .billboardHeadButton button {
+    width: 100%;
     height: 100%;
-    padding: 54px 50px 50px 50px;
     background: #FA434B;
     color: white;
     font-weight: 600;
@@ -323,32 +279,46 @@ button {
 
 }
 
+.billboardCards .card .price {
+    position: absolute;
+    top: 24px;
+    left: 20px;
+    padding: 4px 12px;
+    background: #FA434B;
+    border-radius: 14px;
+    font-weight: 600;
+    color: white;
+}
+
+.shortInfo .content .text h1 {
+    font-weight: 700;
+    color: white;
+}
+
+.shortInfo .content .text {
+    position: absolute;
+    bottom:0;
+    z-index: 1001;
+}
+
+.billboardCards .card {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+.billboardCards {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
 .billboardInfoSection {
     margin-top: 50px;
 }
 
-.billboardInfoSection .content{
-    display: flex;
-}
-
-.billboardInfoSection .content .info {
-    width: 47%;
-
-}
-.billboardInfoSection .content .picture {
-    width: 53%;
-    padding-bottom: 50%;
-    position: relative;
-    overflow: hidden;
-}
-
-.billboardInfoSection .content .picture .imgWrapper {
-    width: calc(100% - 50px);
-    height: calc(100% - 50px);
-    position: absolute;
-    left: 50px;
-    border: 10px solid #E7E7E8;
-}
 
 .billboardInfoSection .content .picture .imgWrapper img {
     object-fit: cover;
@@ -531,161 +501,6 @@ button {
     color: #282828;
 }
 
-.billboardModal {
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    background: rgba(0, 0, 0, 0.829);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-}
-
-.billboardModalWindow {
-    width: 65%;
-    display: flex;
-    transition: .5s;
-}
-
-.billboardModalWindow .sectionInfo {
-    width: 50%;
-    position: relative;
-    padding-bottom: 50%;
-    overflow: hidden;
-}
-
-.billboardModalWindow .sectionInfo .redLayout {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background:#fa434cde;
-    z-index: 1005;
-}
-
-.billboardModalWindow .sectionForm {
-    width: 50%;
-    padding: 0 60px;
-    height: inherit;
-    position: relative;
-    overflow: hidden;
-    background: #FBFBFB;
-}
-
-.billboardModalWindow .sectionInfo .textWrapper {
-    position: absolute;
-    z-index: 1006;
-    width: 100%;
-    padding:0 60px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-}
-
-.billboardModalWindow .sectionInfo h5 {
-    color: white;
-    font-weight: bold;
-    font-size: 38px;
-}
-
-.billboardModalWindow .sectionInfo p {
-    color: white;
-    font-weight: 500;
-    font-size: 22px;
-    margin-top: 20px;
-}
-
-.billboardModalWindow .sectionForm form {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    padding: 0 60px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-}
-
-.billboardModalWindow .sectionForm form input, .billboardModalWindow .sectionForm form textarea, .loginForm input {
-    width: 100%;
-    height: 54px;
-    border-radius: 0;
-    color: #818181;
-    border:1px solid transparent;
-    font-weight: normal;
-    font-size: 18px;
-    margin-top: 15px;
-    outline: none;
-    -webkit-box-shadow: 0px 2px 8px 0px rgba(34, 60, 80, 0.2);
-    -moz-box-shadow: 0px 2px 8px 0px rgba(34, 60, 80, 0.2);
-    box-shadow: 0px 2px 8px 0px rgba(34, 60, 80, 0.2);
-    padding: 0 20px 0 54px;
-}
-
-.billboardModalWindow .sectionForm form textarea {
-    height: 175px;
-    resize: none;
-    padding: 19px 20px 19px 54px;
-}
-
-.billboardModalWindow .sectionForm form button, .loginForm button {
-    background: #FA434B;
-    margin-top: 15px;
-    width: 100%;
-    height: 54px;
-    text-align: center;
-    font-weight: 500;
-    font-size: 18px;
-    color:white
-}
-
-
-.billboardModalWindow .sectionForm form input:focus, .loginForm input:focus {
-    border:1px solid #FA434B;
-}
-
-.billboardModalWindow .policy {
-    margin-top: 20px;
-    font-weight: normal;
-    font-size: 16px;
-    color: #282828;
-}
-
-.billboardModalWindow .policy a {
-    color: #FA434B;
-}
-
-.billboardModalWindow .inputWrapper {
-    position: relative;
-}
-
-.billboardModalWindow .inputWrapper .icon {
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    top: 50%;
-    left: 19px;
-    transform: translateY(-18%);
-}
-
-.billboardModalWindow .inputWrapper:nth-child(3) .icon {
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    top: 38px;
-    left: 19px;
-}
-
-.visible {
-    transition: .3s;
-    opacity: 1;
-    z-index: 100000;
-}
 
 .loginWrapper {
     width: 100%;
@@ -735,13 +550,8 @@ button {
     display: none;
 }
 
-
-
-#flyingInput {
-    display: none;
-    width: 0;
-    height: 0;
-
+.monthSelect {
+    margin-top: 5px;
 }
 
 
@@ -771,6 +581,168 @@ footer .rightsideWrapper .contacts{
     align-items: center;
     margin-left: -7px;
 }
+
+.billboardModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    z-index: -1;
+    opacity: 0;
+}
+
+.billboardModalWindow {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.billboardModalWindow .sectionInfo {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+}
+
+.billboardModalWindow .sectionForm {
+    background: #FBFBFB;
+}
+
+.billboardModalWindow .redLayout {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1005;
+    background: rgba(250, 67, 75, 0.87);
+}
+
+.billboardModalWindow .textWrapper {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1006;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.textWrapper .wp {
+    max-width: 377px;
+}
+
+.billboardModalWindow .textWrapper .title {
+    font-weight: bold;
+    font-size: 36px;
+    color: white;
+}
+
+.billboardModalWindow .textWrapper .text {
+    font-weight: 500;
+    font-size: 20px;
+    color: white;
+    margin-top: 20px;
+}
+
+.billboardModalWindow .sectionForm {
+    height: 0;
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 50%;
+    overflow-y: scroll;
+}
+
+.billboardModalWindow .sectionForm form {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.billboardModalWindow .sectionForm form input, .billboardModalWindow .sectionForm form textarea, .loginForm input {
+    width: 100%;
+    height: 54px;
+    border-radius: 0;
+    color: #818181;
+    border:1px solid transparent;
+    font-weight: normal;
+    font-size: 18px;
+    margin-top: 15px;
+    outline: none;
+    -webkit-box-shadow: 0px 2px 8px 0px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 0px 2px 8px 0px rgba(34, 60, 80, 0.2);
+    box-shadow: 0px 2px 8px 0px rgba(34, 60, 80, 0.2);
+    padding: 0 20px 0 54px;
+}
+
+.billboardModalWindow .sectionForm form textarea {
+    height: 175px;
+    resize: none;
+    padding: 19px 20px 19px 54px;
+}
+
+.billboardModalWindow .sectionForm form button, .loginForm button {
+    background: #FA434B;
+    margin-top: 15px;
+    width: 100%;
+    height: 54px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 18px;
+    color:white
+}
+
+
+.billboardModalWindow .sectionForm form input:focus, .loginForm input:focus {
+    border:1px solid #FA434B;
+}
+
+.billboardModalWindow .policy {
+    display: block;
+    margin-top: 20px;
+    font-weight: normal;
+    font-size: 16px;
+    color: #282828;
+}
+
+.billboardModalWindow .policy a {
+    color: #FA434B;
+}
+
+.billboardModalWindow .inputWrapper {
+    position: relative;
+}
+
+.billboardModalWindow .inputWrapper .icon {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 50%;
+    left: 19px;
+    transform: translateY(-18%);
+}
+
+.billboardModalWindow .textareaWrapper .icon {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 38px;
+    left: 19px;
+}
+
+.visible {
+    transition: .3s;
+    opacity: 1;
+    z-index: 100000;
+}
+
+
 
 footer .rightsideWrapper .contact .icon{
     width: 18px;

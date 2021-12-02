@@ -57,9 +57,9 @@ if(bookBillboard){
             billboardModal.classList.add("visible")
             document.body.style.overflow = "hidden"
             billboardModal.onclick = (ev)=>{
-                if(ev.path.indexOf(billboardModalWindow) == -1){
+                if(ev.path.indexOf(document.querySelector(".sectionForm")) == -1 && ev.path.indexOf(document.querySelector(".sectionInfo")) == -1){
                     billboardModal.classList.remove("visible")
-                    document.body.style.overflow = "scroll"
+                    document.body.style.overflowY = "scroll"
                 }
             }
         }

@@ -8,9 +8,11 @@
                     <h3>Билборд сторона {{$billboard->side}}</h3>
                     <p>{{$billboard->city}}: {{$billboard->address}}</p>
                 </div>
+                @guest
                 <div class="billboardHeadButton">
                     <button id="bookBillboard">Забронировать</button>
                 </div>
+                @endguest
             </div>
         </div>
     </div>
@@ -65,6 +67,14 @@
                                     </tr>
                                 </tbody>
                             </table>
+                            <div class="statsMob">
+                                <p>Размер: {{$billboard->size}}</p>
+                                <p>Монтирование: {{$billboard->mounting}}</p>
+                                <p>Печать: {{$billboard->printing}} </p>
+                                <p>Материал: {{$billboard->material}}</p>
+                                <p>Подсветка: {{$billboard->spotlight == 0 ? "Есть":"Нет"}}</p>
+                                <p>Налог: {{$billboard->tax}}</p>
+                            </div>
                         <div class="showOnMapButton">
                             <div class="wp">
                                 <span class="icon address" style="background: url({{asset("media/icons/Pointer.svg")}}) no-repeat center/contain"></span>
@@ -88,22 +98,43 @@
                             <p class="title">Календарь {{$year}}</p>
                             <div class="months">
                                 @foreach(array_keys($years[$year]) as $month)
+                                    @auth
+                                        <form action="{{route("updateStatus")}}" class="statusForm" method="post">
+                                            @csrf
+                                            @method("POST")
+                                            <input type="text" name="year" value="{{$year}}" hidden>
+                                            <input type="text" name="month" value="{{$month}}" hidden>
+                                            <input type="text" name="billboardId" value="{{$billboard->id}}" hidden>
+                                            @endauth
                                     @if($years[$year][$month]!=4)
                                         <div class="month">
                                     <span class="title">{{$month}}</span>
                                     @switch($years[$year][$month])
-                                        @case(1)
-                                        <div class="status red"></div>
-                                        @break
                                         @case(0)
+                                        <div class="status red"></div>
+                                        <?php $status=0?>
+                                        @break
+                                        @case(2)
                                         <div class="status yellow"></div>
+                                         <?php $status=2?>
                                         @break
                                         @default
                                         <div class="status green"></div>
+                                                <?php $status=1?>
                                         @break
                                     @endswitch
+                                            @auth
+                                            <select name="status" class="monthSelect">
+                                                <option @if($status==0) selected @endif  value="0">Занято</option>
+                                                <option @if($status==2) selected @endif  value="2">Резерв</option>
+                                                <option @if($status==1) selected @endif value="1">Свободно</option>
+                                            </select>
+                                            @endauth
                                 </div>
                                     @endif
+                                    @auth
+                                        </form>
+                                    @endauth
                                 @endforeach
                             </div>
                         </div>
@@ -138,14 +169,19 @@
         <div class="billboardModalWindow">
                 <div class="sectionInfo" style="background: url({{asset("media/pictures/shortInfoBackground.png")}}) no-repeat center/cover">
                     <div class="textWrapper">
-                       <h5 class="title">Получите подробную информацию</h5>
-                        <p class="text">Оставьте свои контактные данные, мы свяжемся с Вами и предоставим Вам подробную информацию в течение 1 минуты</p>
+                        <div class="wp">
+                            <h5 class="title">Получите подробную информацию</h5>
+                            <p class="text">Оставьте свои контактные данные, мы свяжемся с Вами и предоставим Вам подробную информацию в течение 1 минуты</p>
+                        </div>
                     </div>
 
                     <div class="redLayout"></div>
                 </div>
                 <div class="sectionForm">
-                    <form action="">
+                    <form action="{{route("leaveApplication")}}" method="post">
+                        @csrf
+                        @method("POST")
+                        <input type="hidden" name="billboard_id" value="{{$billboard->id}}">
                         <div class="inputWrapper">
                             <div class="icon" style="background: url({{asset("media/icons/user.svg")}}) no-repeat center/contain"></div>
                             <input type="text" name="name" placeholder="Как вас зовут?" required>
@@ -154,7 +190,7 @@
                             <div class="icon" style="background: url({{asset("media/icons/business.svg")}}) no-repeat center/contain"></div>
                             <input type="text" name="email" placeholder="Введите ваш e-mail" required>
                         </div>
-                        <div class="inputWrapper">
+                        <div class="inputWrapper textareaWrapper">
                             <div class="icon" style="background: url({{asset("media/icons/system.svg")}}) no-repeat center/contain"></div>
                             <textarea name="comment" placeholder="Комментарий"></textarea>
                         </div>
@@ -167,4 +203,15 @@
                 </div>
         </div>
     </div>
+    @auth
+    <script>
+        let select = document.querySelectorAll(".monthSelect");
+        Array.from(select,(el)=>{
+            el.onchange = (ev)=>{
+                el.parentElement.parentElement.submit()
+            }
+        })
+
+    </script>
+    @endauth
 @endsection

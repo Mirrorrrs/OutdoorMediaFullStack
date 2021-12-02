@@ -19,6 +19,7 @@ Route::get("/billboard/{id}",[\App\Http\Controllers\ViewController::class, "bill
 
 Route::get('login', [\App\Http\Controllers\ViewController::class, "login"])->name('login');
 Route::post('login', [\App\Http\Controllers\AuthController::class, "login"])->name("loginPOST");
+Route::post("application/leave",[\App\Http\Controllers\ApplicationController::class,"leave"])->name("leaveApplication");
 
 Route::middleware("CheckAuth")->group(function(){
     Route::get("admin",[\App\Http\Controllers\ViewController::class, "adminBillboards"])->name("adminPanelBillboards");
@@ -26,6 +27,8 @@ Route::middleware("CheckAuth")->group(function(){
     Route::post("billboard/update/{id}", [\App\Http\Controllers\BillboardController::class,"updateInfo"])->name("updateBillboardInfo");
     Route::get("logout", [\App\Http\Controllers\AuthController::class,"logout"])->name("logout");
     Route::post("billboard/update/image/{id}", [\App\Http\Controllers\BillboardController::class, "updateImage"])->name("updateBillboardImage");
+    Route::post("billboard/update/month/status",[\App\Http\Controllers\BillboardController::class, "updateStatus"])->name("updateStatus");
+    Route::get("admin/applications", [\App\Http\Controllers\ViewController::class,"adminApplications"])->name("adminApplications");
 });
 
 

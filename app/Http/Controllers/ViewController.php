@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Application;
 use App\Models\Billboard;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -20,72 +21,72 @@ class ViewController extends Controller
     public function billboard($id)
     {
         $billboard = Billboard::where("id", $id)->with("reservations")->first();
-        if($billboard){
+        if ($billboard) {
             $now = Carbon::now();
             $thisYear = $now->year;
             $thisYearMonth = $now->monthName;
-            if (Auth::check()){
-                $reservations = $billboard->reservations;
-                $reservationsYears = $reservations->pluck("from")->unique();
-                $maxYear = Carbon::create($reservationsYears->max())->year == $thisYear ? $thisYear+1 : Carbon::create($reservationsYears->max())->year;
-            }else{
-                $reservations = $billboard->reservations->take(2);
-                $reservationsYears = $reservations->pluck("from")->unique();
-                $maxYear = $thisYear+1;
-            }
+            $reservations = $billboard->reservations;
+            $reservationsYears = $reservations->pluck("date")->unique();
+            $maxYear = Carbon::create($reservationsYears->max())->year == $thisYear ? $thisYear + 1 : Carbon::create($reservationsYears->max())->year;
+
+
             $thisYearMonthLeft = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-            array_splice($thisYearMonthLeft, 0 ,array_search($thisYearMonth,$thisYearMonthLeft));
+            array_splice($thisYearMonthLeft, 0, array_search($thisYearMonth, $thisYearMonthLeft));
             $years = [];
 
-            for ($i = $thisYear; $i<=$maxYear; $i++){
+            for ($i = $thisYear; $i <= $maxYear; $i++) {
                 $monthsStatuses = [
-                    'January'=>3,
-                    'February'=>3,
-                    'March'=>3,
-                    'April'=>3,
-                    'May'=>3,
-                    'June'=>3,
-                    'July'=>3,
-                    'August'=>3,
-                    'September'=>3,
-                    'October'=>3,
-                    'November'=>3,
-                    'December'=>3
+                    'January' => 1,
+                    'February' => 1,
+                    'March' => 1,
+                    'April' => 1,
+                    'May' => 1,
+                    'June' => 1,
+                    'July' => 1,
+                    'August' => 1,
+                    'September' => 1,
+                    'October' => 1,
+                    'November' => 1,
+                    'December' => 1
                 ];
-                if($i == $thisYear){
+                if ($i == $thisYear) {
                     $monthArray = array_keys($monthsStatuses);
-                    $thisMonthId = array_search($thisYearMonth,$monthArray);
-                    for($j = 0; $j<$thisMonthId; $j++){
-                        $monthsStatuses[$monthArray[$j]]=4;
+                    $thisMonthId = array_search($thisYearMonth, $monthArray);
+                    for ($j = 0; $j < $thisMonthId; $j++) {
+                        $monthsStatuses[$monthArray[$j]] = 4;
                     }
                 }
                 $years[$i] = $monthsStatuses;
             }
-            if ($reservations->isEmpty()) {
-
-            }else{
-
-                foreach ($reservations as $reservation){
-                    $reservationYear = Carbon::create($reservation->from)->year;
-                    $reservationMonth = Carbon::create($reservation->from)->monthName;
-                    $reservationStatus = $reservation->booked;
+            foreach ($reservations as $reservation) {
+                $reservationYear = Carbon::create($reservation->date)->year;
+                $reservationMonth = Carbon::create($reservation->date)->monthName;
+                if ($years[$reservationYear][$reservationMonth] != 4) {
+                    $reservationStatus = $reservation->booked == 1 ? 0 : 2;
                     $years[$reservationYear][$reservationMonth] = $reservationStatus;
                 }
             }
+            if (!Auth::check()) {
+                $yearsKeys = array_keys($years);
+                $years = [
+                    $yearsKeys[0] => $years[$yearsKeys[0]],
+                    $yearsKeys[1] => $years[$yearsKeys[1]],
 
+                ];
+            }
             return view('billboard', [
                 "billboard" => $billboard,
-                "years"=>$years
+                "years" => $years
             ]);
-        }else{
+        } else {
             return abort(404);
         }
     }
 
     public function login()
     {
-        if(Auth::check()){
-           return $this->adminBillboards();
+        if (Auth::check()) {
+            return $this->adminBillboards();
         }
         return view('login');
     }
@@ -94,7 +95,15 @@ class ViewController extends Controller
     {
         $billboards = Billboard::all();
         return view("adminPanelBillboards", [
-            "billboards"=>$billboards
+            "billboards" => $billboards
+        ]);
+    }
+
+    public function adminApplications()
+    {
+        $applications = Application::orderBy("created_at")->get();
+        return view("applications", [
+            "applications" => $applications
         ]);
     }
 

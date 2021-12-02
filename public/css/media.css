@@ -1,0 +1,550 @@
+
+@media screen and (min-width: 1200px) {
+
+    .billboardInfoSection .content .info .stats {
+        display: table;
+    }
+
+    .statsMob {
+        display: none;
+    }
+
+    .billboardHead .text {
+        padding: 25px 0 25px 50px;
+
+    }
+
+    .billboardModalWindow {
+        padding: 30px;
+
+    }
+
+    .sectionInfo {
+        width: 50%;
+        padding-bottom: 50%;
+
+    }
+
+    .sectionForm {
+        width: 50%;
+
+    }
+
+    .sectionForm form {
+        padding: 80px 60px;
+
+    }
+
+    .billboardHead .container {
+        padding-right: 50px;
+    }
+
+    main {
+        margin-top: 64px;
+
+    }
+
+    header .content nav ul li {
+        margin-left: 50px;
+    }
+
+    header .content nav ul{
+        margin-left: -50px;
+    }
+
+    header .content nav {
+        margin-left: 40px;
+    }
+
+    header .content, footer .content {
+        align-items: center;
+
+    }
+
+    .billboardHead .content .billboardHeadButton button {
+        padding: 54px 50px 50px 50px;
+    }
+
+    .billboardHead .content .billboardHeadButton {
+        position: absolute;
+        height: 100%;
+        width: 233px;
+        right: 0;
+        top: 0;
+    }
+
+    .billboardInfoSection .content .picture .imgWrapper {
+        width: calc(100% - 50px);
+        height: calc(100% - 50px);
+        left: 50px;
+    }
+
+    .billboardInfoSection .content{
+        display: flex;
+    }
+
+    .billboardInfoSection .content .info {
+        width: 47%;
+
+    }
+    .billboardInfoSection .content .picture {
+        width: 53%;
+        padding-bottom: 50%;
+    }
+
+    .billboardCards .card .price {
+        font-size: 16px;
+    }
+
+
+    .billboardCards .card .text {
+        padding: 0 20px;
+
+    }
+
+    .billboardCards .card .text .title {
+        font-size: 24px;
+    }
+
+    .billboardCards .card .text .address {
+        font-size: 14px;
+    }
+
+    .container {
+        padding: 0 50px;
+    }
+
+    .billboardCards {
+        width: calc(100% + 27px);
+        margin-left: -27px;
+    }
+
+    .billboardCards .card {
+        width: calc(100%/4 - 27px);
+        margin-left: 27px;
+        margin-top: 20px;
+        padding-bottom: 36%;
+    }
+
+    .shortInfo .content .text {
+        padding: 50px;
+    }
+
+
+    .shortInfo .content .text h1 {
+        font-size: 72px;
+        line-height: 85px;
+    }
+}
+
+@media screen and (max-width: 1199.98px) {
+    .billboardInfoSection .content .info .stats {
+        display: table;
+    }
+
+
+    .statsMob {
+        display: none;
+    }
+
+    .sectionInfo {
+        width: 50%;
+        padding-bottom: 50%;
+
+    }
+
+    .sectionForm {
+        width: 50%;
+
+
+    }
+
+    .sectionForm form {
+        padding: 80px 60px;
+
+    }
+
+
+    .billboardModalWindow {
+        padding: 30px;
+
+    }
+
+    .billboardHead .container {
+        padding-right: 50px;
+    }
+
+    main{
+        margin-top: 64px;
+
+    }
+
+    header .content nav ul li {
+        margin-left: 50px;
+    }
+
+    header .content nav ul{
+        margin-left: -50px;
+    }
+
+    header .content nav {
+        margin-left: 40px;
+    }
+
+    header .content, footer .content {
+        align-items: center;
+
+    }
+
+    .billboardHead .content .billboardHeadButton button {
+        padding: 54px 50px 50px 50px;
+    }
+
+    .billboardHead .content .billboardHeadButton {
+        position: absolute;
+        height: 100%;
+        width: 233px;
+        right: 0;
+        top: 0;
+    }
+
+    .billboardInfoSection .content .picture .imgWrapper {
+        width: calc(100% - 50px);
+        height: calc(100% - 50px);
+        left: 50px;
+    }
+
+
+
+    .billboardInfoSection .content .info {
+        width: 47%;
+
+    }
+    .billboardInfoSection .content .picture {
+        width: 53%;
+        padding-bottom: 50%;
+    }
+
+    .billboardCards .card .price {
+        font-size: 16px;
+    }
+
+
+    .billboardCards .card .text {
+        padding: 0 20px;
+
+    }
+
+    .billboardCards .card .text .title {
+        font-size: 24px;
+    }
+
+    .billboardCards .card .text .address {
+        font-size: 14px;
+    }
+
+    .container {
+        padding: 0 50px;
+    }
+
+    .billboardCards {
+        width: calc(100% + 27px);
+        margin-left: -27px;
+    }
+
+    .billboardCards .card {
+        width: calc(100%/3 - 27px);
+        margin-left: 27px;
+        margin-top: 20px;
+        padding-bottom: 50%;
+    }
+
+    .shortInfo .content .text {
+        padding: 50px;
+    }
+
+
+    .shortInfo .content .text h1 {
+        font-size: 72px;
+        line-height: 85px;
+    }
+}
+
+@media screen and (max-width: 991.98px) {
+
+    .billboardInfoSection .content .info .stats {
+        display: table;
+    }
+
+    .statsMob {
+        display: none;
+    }
+
+    .sectionForm form {
+        padding: 60px 40px;
+    }
+
+
+    .sectionInfo {
+        width: 100%;
+        padding-bottom: 80%;
+
+    }
+
+    .sectionForm {
+        width: 100%;
+        flex: 1 1 auto;
+    }
+
+    .billboardModalWindow {
+        padding: 0;
+        flex-direction: column;
+
+    }
+
+    .billboardHead .container {
+        padding-right: 30px;
+    }
+
+    main {
+        margin-top: 145px;
+
+    }
+
+    header .content nav ul li {
+        margin-left:0;
+    }
+
+    header .content nav {
+        width: 100%;
+        margin-top: 20px;
+        margin-left: 0;
+    }
+
+    header .content nav ul {
+        width: 100%;
+        margin-left: 0;
+        justify-content: space-between;
+    }
+
+    .detailedInfo .content {
+        flex-direction: column;
+        margin-top: -20px;
+    }
+
+    .detailedInfo .content .card {
+        margin-top: 20px;
+    }
+
+    footer .rightsideWrapper {
+        margin-top: 20px;
+    }
+
+    header .content, footer .content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .billboardHead .content .billboardHeadButton button {
+        padding: 30px 50px 50px 50px;
+    }
+
+    .billboardHead .content .billboardHeadButton {
+        position: static;
+        width: 100%;
+        height: 40px;
+        margin-top: 20px;
+    }
+
+    .billboardInfoSection .content .picture .imgWrapper {
+        width: 100%;
+        height: 100%;
+        left: 0;
+    }
+
+    .billboardInfoSection .content{
+        flex-direction: column-reverse;
+    }
+
+    .billboardInfoSection .content .info {
+        width: 100%;
+        margin-top: 50px;
+    }
+    .billboardInfoSection .content .picture {
+        width: 100%;
+        padding-bottom: 100%;
+        margin-top: 40px;
+    }
+
+    .billboardCards .card .price {
+        font-size: 16px;
+    }
+
+
+    .billboardCards .card .text {
+        padding: 0 20px;
+    }
+
+    .billboardCards .card .text .title {
+        font-size: 24px;
+    }
+
+    .billboardCards .card .text .address {
+        font-size: 14px;
+    }
+
+    .container {
+        padding: 0 50px;
+    }
+
+    .billboardCards {
+        width: calc(100% + 27px);
+        margin-left: -27px;
+    }
+
+    .billboardCards .card {
+        width: calc(100%/3 - 27px);
+        margin-left: 27px;
+        margin-top: 20px;
+        padding-bottom: 48%;
+    }
+
+    .shortInfo .content .text {
+        padding: 50px;
+    }
+
+
+    .shortInfo .content .text h1 {
+        font-size: 62px;
+        line-height: 55px;
+    }
+}
+
+@media screen and (max-width: 767.98px) {
+
+    .billboardInfoSection .content .info .stats {
+        display: table;
+    }
+
+    .statsMob {
+        display: none;
+    }
+
+    .billboardCards .card .price {
+        font-size: 16px;
+    }
+
+
+    .billboardCards .card .text {
+        padding: 0 20px;
+
+    }
+
+    .billboardCards .card .text .title {
+        font-size: 24px;
+    }
+
+    .billboardCards .card .text .address {
+        font-size: 14px;
+    }
+
+    .container {
+        padding: 0 50px;
+    }
+
+    .billboardCards {
+        width: calc(100% + 15px);
+        margin-left: -15px;
+    }
+
+    .billboardCards .card {
+        width: calc(100%/2 - 15px);
+        margin-left: 15px;
+        margin-top: 10px;
+        padding-bottom: 78%;
+    }
+
+    .shortInfo .content .text {
+        padding: 50px;
+    }
+
+
+    .shortInfo .content .text h1 {
+        font-size: 45px;
+        line-height: 45px;
+    }
+}
+
+@media screen and (max-width: 575.98px) {
+
+    .billboardInfoSection .content .info .showOnMapButton {
+        flex-direction: column;
+    }
+    .billboardInfoSection .content .info .showOnMapButton .price {
+        margin-top: 20px;
+    }
+
+
+    .billboardInfoSection .content .info .stats {
+        display: none;
+    }
+
+    .statsMob {
+        margin-top: 20px;
+        display: block;
+    }
+
+    .billboardHead .text {
+        padding: 25px 0 25px 25px;
+
+    }
+
+    .billboardCards .card .price {
+        font-size: 18px;
+    }
+
+
+    .billboardCards .card .text {
+        padding: 20px;
+    }
+
+    .billboardCards .card .text .title {
+        font-size: 25px;
+    }
+
+    .billboardCards .card .text .address {
+        font-size: 16px;
+    }
+
+    .container {
+        padding: 0 30px;
+    }
+
+    .billboardCards {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .billboardCards .card {
+        margin-left: 0;
+        width: 100%;
+        margin-top: 30px;
+        padding-bottom: 160%;
+    }
+
+    .shortInfo .content .text {
+        padding: 30px;
+    }
+
+
+    .shortInfo .content .text h1 {
+        font-size: 35px;
+        line-height: 45px;
+    }
+}
+
+
+
+
+
+

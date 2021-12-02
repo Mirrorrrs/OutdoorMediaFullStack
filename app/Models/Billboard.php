@@ -25,4 +25,9 @@ class Billboard extends Model
     {
         return $this->hasMany(Reservation::class,"billboard_id","id");
     }
+
+    public function applications()
+    {
+        return $this->hasMany(Application::class,"billboard_id","id");
+    }
 }

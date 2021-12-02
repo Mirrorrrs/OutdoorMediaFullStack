@@ -14,15 +14,16 @@
         <h3 class="title">Outdoor admin</h3>
         <nav>
             <ul>
-                <li class="checked"><a href="">Биллборды</a></li>
-                <li><a href="">Клиенты</a></li>
+
+                <li @if(\Illuminate\Support\Facades\Route::currentRouteName()=="adminPanelBillboards") class="checked" @endif><a href="{{route("adminPanelBillboards")}}">Биллборды</a></li>
+                <li @if(\Illuminate\Support\Facades\Route::currentRouteName()=="adminApplications") class="checked" @endif><a href="{{route("adminApplications")}}">Клиенты</a></li>
                 <li><a href="{{route("logout")}}">Выход</a></li>
             </ul>
         </nav>
     </div>
     <div class="adminContent">
         @yield("billboards")
-        @yield("clients")
+        @yield("applications")
     </div>
 </div>
 

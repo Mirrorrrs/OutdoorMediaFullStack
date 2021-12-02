@@ -1,5 +1,6 @@
 @import "../fonts/SF Pro Display/stylesheet.css";
 @import "style.css";
+@import "media.css";
 
 * {
     margin: 0;
@@ -50,7 +51,7 @@ li {
 
 .adminPanel .adminNavigation {
     height: 100%;
-    min-width: 300px;
+    min-width: 350px;
     background: #FBFBFB;
 }
 
@@ -111,6 +112,16 @@ li {
     background: #dedede;
     padding: 15px 30px;
     font-size: 16px;
+}
+
+.applicationTable {
+    width: 100%;
+    font-size: 18px;
+    margin-top: 40px;
+}
+
+.applicationTable a{
+    color: #FA434B;
 }
 
 #fileName {
